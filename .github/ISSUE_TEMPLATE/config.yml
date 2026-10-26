@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Reportar vulnerabilidade no VION
+    url: https://github.com/jvncodez/VionSecurityAgent/security/advisories/new
+    about: Reporte privado. Não abra issue pública para falhas de segurança.
