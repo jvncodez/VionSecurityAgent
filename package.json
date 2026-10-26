@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vionsec/vion-cli.git"
+    "url": "git+https://github.com/jvncodez/VionSecurityAgent.git"
   },
   "homepage": "https://github.com/jvncodez/VionSecurityAgent#readme",
   "bugs": {

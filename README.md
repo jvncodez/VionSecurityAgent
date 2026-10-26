@@ -5,136 +5,114 @@
   </picture>
 </p>
 
-<p align="center">
-  <b>Pesquisa aberta em agentes autônomos de segurança.</b><br>
-  Um orquestrador de IA coordena subagentes especialistas para auditar software.<br>
-  Cada vulnerabilidade só é dada como confirmada quando tem evidência anexada.
-</p>
+# VION Security Agent
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/@vionsec/cli"><img alt="npm" src="https://img.shields.io/npm/v/@vionsec/cli?color=2563eb&label=npm"></a>
-  <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/badge/licen%C3%A7a-MIT-2563eb"></a>
-  <img alt="Node 22.13+" src="https://img.shields.io/badge/node-%E2%89%A5%2022.13-2563eb">
-  <img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-skills%20%2B%20MCP-2563eb">
-  <img alt="local-first" src="https://img.shields.io/badge/dados-100%25%20locais-2563eb">
-</p>
+### Vulnerable Investigator Orchestrator Network
 
-<p align="center">
-  <a href="#-instalação">Instalação</a> ·
-  <a href="#-primeiros-passos">Primeiros passos</a> ·
-  <a href="#-como-funciona">Como funciona</a> ·
-  <a href="#-comandos">Comandos</a> ·
-  <a href="#-interface-local">Interface</a> ·
-  <a href="#-segurança-e-ética">Segurança</a> ·
-  <a href="#-contribuindo">Contribuindo</a>
-</p>
+**Open-source security agent for AI-assisted development, autonomous auditing and evidence-driven vulnerability investigation.**
+
+O VION Security Agent é um agente autônomo de segurança que coordena uma rede hierárquica de agentes especializados para analisar aplicações, investigar vulnerabilidades e produzir relatórios baseados em evidências.
+
+O projeto nasceu de uma pesquisa sobre segurança em aplicações desenvolvidas com inteligência artificial, especialmente os riscos introduzidos quando a velocidade de geração de código se torna prioridade em relação à validação de segurança.
+
+O objetivo é aproximar a velocidade do desenvolvimento assistido por IA do rigor exigido pela engenharia de segurança.
+
+- **Open source:** licença MIT.
+- **Runtime:** Node.js 22.13+.
+- **Integração:** Claude Code.
+- **Arquitetura:** orquestrador, subagentes especializados e analisadores determinísticos.
+- **Privacidade:** execução local-first, com banco de dados e evidências armazenados localmente.
+- **Validação:** uma vulnerabilidade só é considerada confirmada quando possui evidência e método de validação registrados.
 
 ---
+
+## O problema que estamos investigando
+
+A inteligência artificial tornou possível desenvolver aplicações em uma velocidade que antes exigia equipes inteiras. Entretanto, gerar código funcional não significa necessariamente construir software seguro.
+
+Durante nossa pesquisa, investigamos como agentes de IA lidam com requisitos de segurança, validação de código e vulnerabilidades recorrentes da OWASP Top 10.
+
+Identificamos um problema importante: aplicações podem parecer completas e funcionar corretamente, mas ainda apresentar falhas de autorização, exposição de dados, configurações inseguras e problemas na implementação de APIs.
+
+Entre os exemplos que motivaram o projeto estão:
+
+- IDOR e outras falhas de controle de acesso.
+- Exposição indevida de dados e informações sensíveis.
+- APIs com permissões ou configurações inadequadas.
+- Segredos incorporados ao código-fonte.
+- Falhas de autenticação e gerenciamento de sessões.
+- Vulnerabilidades em dependências e configurações de infraestrutura.
+- Problemas de segurança específicos de aplicações que utilizam LLMs.
+
+O resultado pode ser uma aplicação construída rapidamente, mas que exige meses de investigação, correções e refatoração para atingir um nível adequado de segurança.
+
+**O VION foi desenvolvido para investigar esse gargalo.**
+
+Em vez de tratar a segurança como uma etapa isolada ao final do projeto, propomos incorporá-la ao ciclo de vida do software: da arquitetura e implementação à auditoria, pré-produção e pós-deploy.
+
+## Nossa abordagem
+
+### Secure Development desde o início
+
+O VION foi concebido para apoiar uma abordagem de desenvolvimento seguro desde a primeira linha de código.
+
+Isso envolve identificar riscos antes da implementação, orientar decisões arquiteturais, verificar controles de segurança durante o desenvolvimento e auditar a aplicação antes e depois de sua implantação.
+
+O agente também pode auxiliar na preparação de configurações básicas de infraestrutura, incluindo ambientes em Virtual Private Servers (VPS), de acordo com o escopo e as necessidades do projeto.
+
+A proposta não é substituir desenvolvedores, engenheiros de segurança ou processos de QA. É fornecer uma camada adicional de análise e investigação que ajude a reduzir falhas evitáveis.
 
 ## 🔬 A pesquisa
 
-O VION investiga uma pergunta prática: **uma rede hierárquica de agentes de IA consegue auditar software com o rigor de uma revisão humana, gastando uma fração dos tokens?**
+A principal pergunta da pesquisa é:
 
-A hipótese tem três partes:
+> Uma rede hierárquica de agentes de IA consegue auditar software com rigor, evidências verificáveis e menor consumo de tokens do que uma abordagem baseada em um único agente?
 
-1. **Determinismo primeiro.** Analisadores estáticos (segredos, taint, IaC, criptografia, BOLA/IDOR) cobrem os padrões óbvios sem gastar tokens.
-2. **Hierarquia de modelos.** Um modelo grande (Opus) só planeja, delega e revisa. Modelos menores (Sonnet e Haiku) fazem a varredura em paralelo, cada um com uma checklist.
-3. **Evidência obrigatória.** Todo achado nasce como *suspeito*. O motor recusa marcar um achado como *confirmado* se não houver evidência anexada e um método de validação descrito.
+A arquitetura atual explora três hipóteses.
 
-Numa auditoria completa de um projeto de teste propositalmente vulnerável, o VION confirmou 13 achados com evidência em cerca de 3,5 minutos, a um custo de **US$ 0,89**. O orquestrador Opus ficou com 55% do custo e os subagentes com o restante.
+**1. Análise determinística antes da análise por IA**
 
-Tudo roda na sua máquina. Auditorias, evidências e relatórios ficam num banco local e aparecem numa interface web em `http://localhost:3333`.
+Analisadores estáticos verificam padrões conhecidos, como segredos expostos, fluxos de dados potencialmente perigosos, configurações de infraestrutura, uso de criptografia e possíveis falhas de autorização.
 
----
+Essas verificações não dependem de tokens de modelos de linguagem e ajudam a reservar a análise por IA para tarefas que exigem mais contexto.
 
-## 📦 Instalação
+**2. Especialização e hierarquia de agentes**
 
-**Requisitos**
+Um modelo de maior capacidade planeja a auditoria, distribui tarefas e revisa os resultados. Subagentes especializados executam checklists de segurança em paralelo, investigando diferentes partes da aplicação.
 
-| Requisito | Versão |
-|---|---|
-| [Node.js](https://nodejs.org) | 22.13 ou superior |
-| [Claude Code](https://docs.claude.com/claude-code) | instalado e autenticado |
-| Sistema | Windows, macOS ou Linux |
+Essa divisão busca reduzir contexto redundante e tornar o processo mais eficiente.
 
-**Pelo npm**
+**3. Evidência obrigatória para confirmação**
 
-```bash
-npm install -g @vionsec/cli
-vion init
-```
+Todo achado começa como suspeita. Para ser confirmado, precisa apresentar evidência associada e um método de validação documentado.
 
-**Direto do GitHub**
+Quando a evidência não é suficiente, o achado não deve ser apresentado como vulnerabilidade confirmada.
 
-```bash
-npm install -g github:jvncodez/VionSecurityAgent
-vion init
-```
+### Resultado experimental
 
-O `vion init` instala no Claude Code:
-- as skills `/vion:*`;
-- os subagentes;
-- o servidor MCP `vion`;
-- o hook que aplica o escopo das auditorias.
+Em uma auditoria de um projeto de teste deliberadamente vulnerável, a configuração experimental utilizada confirmou 13 achados com evidências em aproximadamente 3,5 minutos, com custo reportado de US$ 0,89.
 
-Depois, reinicie o Claude Code e confira a instalação:
+Nessa execução, o orquestrador baseado em Opus representou aproximadamente 55% do custo, enquanto os subagentes representaram o restante.
 
-```bash
-vion doctor
-```
-
-<details>
-<summary><b>Desinstalar</b></summary>
-
-```bash
-vion uninstall              # remove skills, subagentes, MCP e hook do Claude Code
-npm uninstall -g @vionsec/cli
-```
-
-Os dados das auditorias continuam em disco até você rodar `vion data delete`.
-</details>
+Esses números descrevem uma execução específica, não uma garantia de desempenho, cobertura ou custo para qualquer aplicação. A pesquisa busca ampliar a validação em diferentes projetos e cenários.
 
 ---
 
-## 🚀 Primeiros passos
+## ⚙️ Como funciona
 
-Escolha por onde começar. Os três caminhos gravam no mesmo banco local.
+O VION combina análise determinística, planejamento, investigação paralela, validação de evidências, correlação de resultados e geração de relatórios.
 
-**1. Pela interface**
+O fluxo geral é:
 
-```bash
-vion ui
-```
-
-Abre `http://localhost:3333`. Em **Auditorias → Nova auditoria**, escolha o projeto, defina o escopo e acompanhe os agentes trabalhando ao vivo.
-
-**2. Pelo terminal**
-
-```bash
-cd meu-projeto
-vion audit .                          # auditoria completa e multiagente
-vion audit . --analyzers-only         # só os analisadores determinísticos (sem IA, 0 tokens)
-vion audit . --skills unified-scan    # uma skill específica
-vion audit . --max-cost 2             # encerra a auditoria ao chegar em US$ 2
-```
-
-**3. Dentro do Claude Code**
-
-```
-/vion:auditoria
-```
-
-Para acompanhar e exportar os resultados:
-
-```bash
-vion audit history            # auditorias anteriores
-vion audit status <id>        # andamento e custo
-vion report <id> --format html
-```
-
----
-
-## 🧠 Como funciona
+1. O usuário inicia uma auditoria pela CLI, pela interface local ou pelo Claude Code.
+2. O motor verifica o escopo e as permissões aplicáveis.
+3. Os analisadores determinísticos executam as verificações suportadas.
+4. O orquestrador divide o trabalho entre os agentes especializados.
+5. Os subagentes investigam diferentes categorias de vulnerabilidades.
+6. O agente investigador valida as suspeitas e registra as evidências.
+7. O motor correlaciona os resultados e trata duplicatas.
+8. O orquestrador realiza a revisão final.
+9. O agente de relatórios organiza os resultados para análise técnica e executiva.
 
 <p align="center">
   <picture>
@@ -143,145 +121,314 @@ vion report <id> --format html
   </picture>
 </p>
 
-| Agente | Modelo padrão | Papel |
-|---|---|---|
-| **orquestrador** | Opus | planeja, delega, revisa os achados críticos e fecha o relatório |
-| `vion-recon` | Haiku | mapeia a stack, a superfície de ataque e os ativos |
-| `vion-vuln` | Sonnet | executa uma checklist (auth, injeção, segredos, banco, API…), em paralelo |
-| `vion-threat-intel` | Haiku | complementa o audit de dependências com CVE e GHSA |
-| `vion-investigador` | Sonnet | valida as suspeitas: confirma com evidência ou descarta como falso positivo |
-| `vion-correlacao` | Haiku | resolve quase-duplicatas e conflitos que o motor não resolve sozinho |
-| `vion-relatorio` | Haiku | escreve o resumo executivo |
+Os resultados são armazenados localmente e podem ser consultados pela interface ou exportados em formatos como HTML, Markdown e JSON.
 
-**Por que gasta pouco**
-- Os subagentes recebem só um `audit_id`, um `task_id` e o nome da checklist. O resto eles buscam pelo MCP.
-- O orquestrador lê resumos de até 200 palavras e IDs de achados, nunca o código bruto.
-- A deduplicação é feita pelo motor, por impressão digital (arquivo, linha, CWE e regra).
-- `--max-cost` e `limits.maxCostUsd` encerram a execução quando o teto é atingido.
+### Agentes especializados
 
-**Ciclo de vida de um achado**
+| Agente | Responsabilidade |
+|---|---|
+| Orquestrador | Planeja, delega tarefas e revisa os resultados críticos. |
+| `vion-recon` | Identifica a stack tecnológica, os ativos e a superfície de ataque. |
+| `vion-vuln` | Executa checklists especializadas de vulnerabilidades. |
+| `vion-threat-intel` | Investiga dependências, CVEs e GHSA. |
+| `vion-investigador` | Avalia suspeitas, evidências e métodos de validação. |
+| `vion-correlacao` | Identifica duplicatas e conflitos entre achados. |
+| `vion-relatorio` | Produz o resumo executivo e organiza os resultados. |
 
-```
-suspeito ──► confirmado      (exige evidência + método de validação)
-         └─► falso positivo  (com justificativa)
-```
+Os modelos associados a cada função são configuráveis. A configuração padrão utiliza Opus no orquestrador, Sonnet nas tarefas de investigação e Haiku em funções auxiliares.
 
-Os modelos de cada papel são configuráveis:
+### Ciclo de vida dos achados
+
+`Suspeito → Confirmado`
+
+`Suspeito → Falso positivo`
+
+A confirmação exige evidência e um método de validação documentado. Um resultado sem evidência suficiente permanece sem confirmação, independentemente da confiança expressa pelo modelo.
+
+### Eficiência de contexto e custos
+
+A arquitetura busca reduzir o consumo de tokens por meio de:
+
+- Divisão das tarefas em checklists especializadas.
+- Compartilhamento de identificadores de auditoria e tarefas pelo MCP.
+- Uso de resumos e identificadores de achados no lugar de grandes blocos de código no contexto do orquestrador.
+- Deduplicação por impressões digitais dos achados.
+- Limites de custo configuráveis para interromper a execução.
+
+A eficiência depende do projeto, dos modelos utilizados, da quantidade de código analisado e das tarefas necessárias.
+
+---
+
+## 📦 Instalação
+
+### Requisitos
+
+| Requisito | Versão ou condição |
+|---|---|
+| Node.js | 22.13 ou superior |
+| Claude Code | Instalado e autenticado |
+| Sistema operacional | Windows, macOS ou Linux |
+
+### Instalação pelo npm
 
 ```bash
-vion config set models.vuln haiku
-vion config set models.orquestrador sonnet
-vion init        # aplica os modelos novos aos subagentes
+npm install -g @vionsec/cli
+vion init
 ```
+
+### Instalação diretamente do GitHub
+
+```bash
+npm install -g github:jvncodez/VionSecurityAgent
+vion init
+```
+
+O comando de inicialização configura a integração do VION com o Claude Code, incluindo as skills, os subagentes, o servidor MCP e o hook de aplicação do escopo.
+
+Depois da instalação, reinicie o Claude Code e execute:
+
+```bash
+vion doctor
+```
+
+O diagnóstico verifica os componentes necessários para a execução.
+
+### Desinstalação
+
+```bash
+vion uninstall
+```
+
+Consulte a documentação do comando antes de remover componentes ou dados que deseja preservar.
+
+---
+
+## 🚀 Primeiros passos
+
+O VION oferece três formas principais de iniciar uma auditoria.
+
+### 1. Interface local
+
+```bash
+vion ui
+```
+
+A interface fica disponível em:
+
+`http://localhost:3333`
+
+Acesse a seção de auditorias para selecionar um projeto, definir o escopo autorizado e acompanhar a execução dos agentes.
+
+Para utilizar outra porta:
+
+```bash
+vion ui --port 4000
+```
+
+### 2. Terminal
+
+```bash
+cd meu-projeto
+
+# Auditoria completa com múltiplos agentes
+vion audit .
+
+# Apenas analisadores determinísticos
+vion audit . --analyzers-only
+
+# Executar uma skill específica
+vion audit . --skills unified-scan
+
+# Definir um limite de custo
+vion audit . --max-cost 2
+```
+
+O modo `--analyzers-only` executa os analisadores suportados sem utilizar tokens de modelos de IA.
+
+### 3. Claude Code
+
+Dentro do Claude Code, execute:
+
+```text
+/vion:auditoria
+```
+
+A skill inicia o fluxo de auditoria integrado ao projeto.
+
+### Consultar resultados
+
+```bash
+vion audit history
+vion audit status <id>
+vion report <id> --format html
+```
+
+A referência completa dos argumentos e opções fica em `docs/COMMANDS.md`.
 
 ---
 
 ## ⌨️ Comandos
 
-### CLI
-
-| Comando | O que faz |
-|---|---|
-| `vion help [comando]` | ajuda geral ou de um comando, com exemplos |
-| `vion init` | instala skills, subagentes, MCP e hook no Claude Code |
-| `vion ui` | sobe a interface em `http://localhost:3333` |
-| `vion audit <alvo>` | inicia uma auditoria autorizada (também `status`, `history` e `stop`) |
-| `vion report <id>` | gera ou exporta o relatório em HTML, Markdown ou JSON |
-| `vion agents list` | mostra os agentes e o modelo de cada um |
-| `vion skills list` · `show <nome>` | lista as skills ou detalha uma |
-| `vion config get` · `set` | modelos por papel, limites de custo, porta e retenção |
-| `vion doctor` | diagnostica Node, Claude Code, MCP, hook, banco e porta |
-| `vion data` | `export`, `backup`, `prune` e `delete` dos dados locais |
-| `vion uninstall` | desfaz o `vion init` |
-
-A referência completa, com todas as opções, erros comuns e exemplos, está em [docs/COMMANDS.md](docs/COMMANDS.md).
-
-### Skills no Claude Code
-
-| Fase | Skills |
-|---|---|
-| **Comece por aqui** | `/vion` · `/vion:ajuda` · `/vion:ciclo` |
-| **Projeto novo** | `/vion:novo` (security by design) · `/vion:dev-seguro` |
-| **Projeto existente** | `/vion:auditoria` · `/vion:orquestrar` · `/vion:unified-scan` · `/vion:pentester` · `/vion:corrigir` · `/vion:fixes` · `/vion:ensinar` |
-| **Pré-produção** | `/vion:pre-deploy` · `/vion:supply-chain` · `/vion:pentest` |
-| **Especializados** | `/vion:recon` · `/vion:debug` · `/vion:ai` (segurança de LLM) · `/vion:landing` |
-| **Pós-produção** | `/vion:monitorar` · `/vion:incidente` |
-| **Privacidade** | `/vion:lgpd` |
-| **Utilidades** | `/vion:status` |
-
-Use `vion skills show <nome>` para ver o que cada skill faz, quando usar, quais permissões pede e quais agentes envolve.
-
----
-
-## 🖥️ Interface local
+O VION utiliza `vion help` como ponto central de consulta à documentação da CLI.
 
 ```bash
-vion ui                 # http://localhost:3333
-vion ui --port 4000
+vion help
+vion help audit
 ```
 
-| Página | O que mostra |
+A ajuda geral apresenta os comandos disponíveis. A ajuda específica detalha o uso, as opções e os exemplos do comando solicitado.
+
+| Comando | Finalidade |
 |---|---|
-| **Início** | score, achados por severidade e auditorias recentes |
-| **Auditorias** | criar, acompanhar ao vivo (tarefas, agentes, modelos, custo) e parar |
-| **Agentes** | o que cada agente fez, com modelo, tokens e tempo |
-| **Vulnerabilidades** | achados confirmados, suspeitos e falsos positivos, com triagem |
-| **Evidências** | trechos de código e saídas que comprovam cada achado, com hash de integridade |
-| **Relatórios** | HTML autocontido (imprima como PDF), Markdown e JSON |
-| **Skills** e **Configurações** | catálogo das skills e modelos por papel, limites e retenção |
+| `vion help` | Exibe a ajuda geral da CLI. |
+| `vion help <comando>` | Mostra a documentação de um comando específico. |
+| `vion init` | Instala e configura a integração com Claude Code. |
+| `vion ui` | Inicia a interface web local. |
+| `vion audit <alvo>` | Inicia uma auditoria autorizada. |
+| `vion audit history` | Lista auditorias anteriores. |
+| `vion audit status <id>` | Consulta o andamento e os custos de uma auditoria. |
+| `vion report <id>` | Gera ou exporta um relatório. |
+| `vion agents list` | Lista os agentes e seus modelos configurados. |
+| `vion skills list` | Lista as skills disponíveis. |
+| `vion skills show <nome>` | Explica uma skill e seus requisitos. |
+| `vion config get` | Consulta as configurações. |
+| `vion config set <chave> <valor>` | Altera uma configuração suportada. |
+| `vion doctor` | Diagnostica a instalação. |
+| `vion data backup` | Cria um backup dos dados locais. |
+| `vion data export <id>` | Exporta os dados de uma auditoria. |
+| `vion data prune` | Remove dados conforme os critérios configurados. |
+| `vion uninstall` | Remove a integração instalada pelo VION. |
 
-Não tem login: a interface só aceita conexões da própria máquina.
-
----
-
-## 🛡️ Segurança e ética
-
-O VION é uma ferramenta **defensiva**. Ele foi feito para auditar sistemas seus ou sistemas em que você tem autorização documentada para testar.
-
-- **O escopo é aplicado pelo motor, não pelo prompt.** Um hook bloqueia acessos à rede fora do escopo e ferramentas de teste ativo sem autorização. Nas auditorias pelo terminal ou pela interface, bloqueia também leitura fora do projeto e qualquer escrita.
-- **Teste ativo exige declaração.** Alvos de rede ou testes ativos pedem uma declaração de autorização, que fica registrada no escopo e no relatório.
-- **Segredos mascarados.** Tokens e senhas são mascarados antes de ir para o banco, as evidências e os relatórios.
-- **Interface só local.** Escuta só em `127.0.0.1`, se protege contra DNS rebinding e CSRF e usa CSP estrita.
-- **Conteúdo auditado é dado, não instrução.** Os agentes são instruídos a não obedecer a textos encontrados no código analisado.
-
-O modelo de ameaça e as limitações conhecidas estão em [SECURITY.md](SECURITY.md).
+Os argumentos exatos, as opções adicionais e os exemplos de uso devem ser consultados por meio de `vion help` e da documentação correspondente.
 
 ---
 
-## 💾 Dados locais
+## 🧩 Skills do VION
 
-| Sistema | Diretório |
+As skills especializam o comportamento do agente de acordo com a tarefa. Cada uma deve ter uma finalidade clara, critérios de utilização e permissões compatíveis com sua responsabilidade.
+
+| Categoria | Skills |
+|---|---|
+| Orientação | `/vion`, `/vion:ajuda`, `/vion:ciclo` |
+| Desenvolvimento seguro | `/vion:novo`, `/vion:dev-seguro` |
+| Auditoria | `/vion:auditoria`, `/vion:orquestrar`, `/vion:unified-scan` |
+| Pentest e correção | `/vion:pentester`, `/vion:pentest`, `/vion:corrigir`, `/vion:fixes` |
+| Aprendizado e diagnóstico | `/vion:ensinar`, `/vion:debug` |
+| Reconhecimento e inteligência | `/vion:recon`, `/vion:supply-chain` |
+| Segurança de IA | `/vion:ai` |
+| Pré-produção e operação | `/vion:pre-deploy`, `/vion:monitorar`, `/vion:incidente` |
+| Privacidade | `/vion:lgpd` |
+| Utilidades | `/vion:landing`, `/vion:status` |
+
+Para entender uma skill, consulte:
+
+```bash
+vion skills show <nome>
+```
+
+A documentação deve explicar o propósito da skill, os cenários de uso, os agentes envolvidos e as permissões necessárias.
+
+---
+
+## 🖥️ Interface web local
+
+A interface permite acompanhar o ciclo de vida das auditorias sem depender exclusivamente do terminal.
+
+| Página | Funcionalidade |
+|---|---|
+| Início | Indicadores, severidades e auditorias recentes. |
+| Auditorias | Criação, acompanhamento e interrupção das execuções. |
+| Agentes | Atividades, modelos, tokens, custos e duração. |
+| Vulnerabilidades | Triagem dos achados suspeitos, confirmados e descartados. |
+| Evidências | Trechos de código e resultados que fundamentam os achados. |
+| Relatórios | Exportação em HTML, Markdown e JSON. |
+| Skills e configurações | Consulta das skills, dos modelos e dos limites operacionais. |
+
+As evidências podem incluir hashes de integridade para ajudar a detectar alterações posteriores.
+
+A interface é destinada ao acesso local, sem um sistema de login próprio. Por isso, sua exposição a outras máquinas deve ser evitada.
+
+---
+
+## 🛡️ Segurança e uso responsável
+
+O VION é destinado à auditoria e à investigação de segurança em projetos próprios ou em sistemas para os quais exista autorização adequada.
+
+### Controles previstos na arquitetura
+
+- **Escopo:** o motor aplica as restrições de auditoria, com apoio de hooks e verificações de permissões.
+- **Testes ativos:** exigem autorização e escopo compatíveis com as operações executadas.
+- **Leitura e escrita:** as operações são limitadas conforme o modo de execução e as permissões definidas.
+- **Proteção de segredos:** tokens e senhas devem ser mascarados antes de serem armazenados ou incluídos nos relatórios.
+- **Isolamento local:** a interface deve permanecer vinculada a `127.0.0.1`, com proteções contra ataques aplicáveis ao servidor web local.
+- **Instruções maliciosas no código:** conteúdo encontrado durante a auditoria deve ser tratado como dado não confiável, não como instrução para os agentes.
+
+A efetividade desses controles depende de sua implementação e validação. Consulte `SECURITY.md` para conhecer o modelo de ameaças, as limitações e os procedimentos de reporte responsável.
+
+---
+
+## 💾 Privacidade e armazenamento
+
+O VION utiliza armazenamento local para manter o histórico de auditorias, as evidências, os relatórios, os logs e as configurações.
+
+| Sistema | Diretório padrão |
 |---|---|
 | Windows | `%LOCALAPPDATA%\vion` |
 | macOS | `~/Library/Application Support/vion` |
-| Linux | `$XDG_DATA_HOME/vion` (ou `~/.local/share/vion`) |
+| Linux | `$XDG_DATA_HOME/vion` ou `~/.local/share/vion` |
 
-Para usar outro lugar, defina `VION_HOME`. Lá ficam o banco SQLite, as evidências, os relatórios, os logs de cada execução e o `config.json`.
+A variável `VION_HOME` permite configurar outro diretório de armazenamento.
+
+Exemplos:
 
 ```bash
-vion data backup                     # cópia consistente do banco
-vion data export <id>                # auditoria, evidências e relatórios numa pasta
-vion data prune --older-than 90      # apaga auditorias com mais de 90 dias
-vion config set retention.days 180   # retenção automática
+# Criar backup
+vion data backup
+
+# Exportar uma auditoria
+vion data export <id>
+
+# Remover auditorias antigas
+vion data prune --older-than 90
+
+# Configurar retenção
+vion config set retention.days 180
 ```
 
-O VION não envia dados a nenhum servidor próprio. Os agentes usam a sua conta do Claude Code. Os analisadores determinísticos funcionam offline.
+O projeto foi concebido para não enviar dados a servidores próprios. Os recursos de IA dependem da integração com o Claude Code e do processamento realizado pelo provedor de modelo utilizado. Portanto, o armazenamento local não significa que o código nunca será transmitido para serviços externos durante uma análise com IA.
+
+Os analisadores determinísticos podem funcionar sem chamadas a modelos de linguagem. Os requisitos de conectividade e as condições de privacidade de cada modo devem ser consultados na documentação.
 
 ---
 
 ## 🤝 Contribuindo
 
-Sugestões, bugs e ideias são bem-vindos em **[jvncodez/VionSecurityAgent](https://github.com/jvncodez/VionSecurityAgent)**. Abra uma issue ou um PR de sugestão: o mantenedor revisa e, se aprovar, a mudança entra na próxima versão publicada.
+O VION é um projeto open source de pesquisa e engenharia de segurança. Contribuições são bem-vindas para ampliar a cobertura de análise, melhorar a precisão das investigações e tornar a arquitetura mais eficiente.
 
-Bons pontos de partida:
-- novas checklists em `assets/checklists/`;
-- melhorias nas skills em `assets/skills/`;
-- novos analisadores determinísticos em `src/analyzers/`.
+Alguns pontos de partida:
 
-Veja o [CONTRIBUTING.md](CONTRIBUTING.md). Vulnerabilidades no próprio VION devem ser reportadas em privado, conforme o [SECURITY.md](SECURITY.md).
+- `assets/checklists/`: novas checklists e melhorias de cobertura.
+- `assets/skills/`: novas skills e melhorias nas existentes.
+- `src/analyzers/`: analisadores determinísticos.
+- Agentes e orquestração: melhorias de especialização, validação e consumo de contexto.
+- Testes: projetos de referência, casos reproduzíveis e avaliação de falsos positivos.
 
----
+Antes de contribuir, consulte `CONTRIBUTING.md`.
+
+Falhas de segurança no próprio VION devem ser reportadas de maneira privada, conforme as instruções de `SECURITY.md`.
+
+Repositório: `github.com/jvncodez/VionSecurityAgent`
 
 ## 📄 Licença
 
-[MIT](LICENSE). Use apenas em sistemas seus ou com autorização documentada.
+O VION Security Agent é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para conhecer os termos de utilização, modificação e redistribuição.
+
+Utilize a ferramenta somente em ambientes próprios ou com autorização adequada.
+
+---
+
+## VION Security Agent
+
+**Build faster. Investigate deeper. Develop securely.**
+
+Um projeto open source dedicado à pesquisa de agentes autônomos de segurança, validação baseada em evidências e desenvolvimento seguro de aplicações com inteligência artificial.
