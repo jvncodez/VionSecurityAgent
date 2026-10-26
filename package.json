@@ -27,6 +27,8 @@
     "dist/ui/",
     "docs/",
     "README.md",
+    "README.pt-BR.md",
+    "README.es.md",
     "LICENSE",
     "SECURITY.md"
   ],

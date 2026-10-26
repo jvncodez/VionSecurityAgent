@@ -13,6 +13,6 @@
     <text x="190" y="334" textLength="900" lengthAdjust="spacingAndGlyphs" xml:space="preserve">  ╚████╔╝ ██║╚██████╔╝██║ ╚████║</text>
     <text x="190" y="398" textLength="900" lengthAdjust="spacingAndGlyphs" xml:space="preserve">   ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝</text>
   </g>
-  <text x="640" y="496" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#E2E8F0">Vulnerable Investigator Orchestrator Network</text>
-  <text x="640" y="548" text-anchor="middle" font-family="'Cascadia Mono', Consolas, Menlo, monospace" font-size="24" letter-spacing="3" fill="#94A3B8">open source · local-first · multiagente</text>
+  <text x="640" y="496" text-anchor="middle" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#e6edf3">Vulnerable Investigator Orchestrator Network</text>
+  <text x="640" y="548" text-anchor="middle" font-family="'Cascadia Mono', Consolas, Menlo, monospace" font-size="24" letter-spacing="3" fill="#8b949e">open source · local-first · multi-agent</text>
 </svg>
