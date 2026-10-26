@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-es-dark.svg">
-    <img alt="VION — Red Orquestadora de Investigación de Vulnerabilidades" src="docs/assets/vion-banner-es-light.svg" width="820">
+    <img alt="VIONSEC Security Agent — Red Orquestadora de Investigación de Vulnerabilidades" src="docs/assets/vion-banner-es-light.svg" width="820">
   </picture>
 </p>
 
