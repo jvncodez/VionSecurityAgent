@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-dark.svg">
-    <img alt="VION — Vulnerable Investigator Orchestrator Network" src="docs/assets/vion-banner-light.svg" width="820">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-en-dark.svg">
+    <img alt="VION — Vulnerable Investigator Orchestrator Network" src="docs/assets/vion-banner-en-light.svg" width="820">
   </picture>
 </p>
 

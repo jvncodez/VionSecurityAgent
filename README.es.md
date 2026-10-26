@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-dark.svg">
-    <img alt="VION — Vulnerable Investigator Orchestrator Network" src="docs/assets/vion-banner-light.svg" width="820">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-es-dark.svg">
+    <img alt="VION — Red Orquestadora de Investigación de Vulnerabilidades" src="docs/assets/vion-banner-es-light.svg" width="820">
   </picture>
 </p>
 
@@ -11,9 +11,9 @@
 
 # VION Security Agent
 
-### Vulnerable Investigator Orchestrator Network
+### Red Orquestadora de Investigación de Vulnerabilidades
 
-**Open-source security agent for AI-assisted development, autonomous auditing and evidence-driven vulnerability investigation.**
+**Agente de seguridad de código abierto para el desarrollo asistido por IA, la auditoría autónoma y la investigación de vulnerabilidades basada en evidencias.**
 
 ---
 
@@ -133,11 +133,11 @@ El proyecto nació de una investigación sobre la seguridad de las aplicaciones 
 
 El objetivo es acercar la velocidad del desarrollo asistido por IA al rigor que exige la ingeniería de seguridad.
 
-- **Open source:** licencia MIT.
-- **Runtime:** Node.js 22.13+.
+- **Código abierto:** licencia MIT.
+- **Entorno de ejecución:** Node.js 22.13+.
 - **Integración:** Claude Code.
 - **Arquitectura:** orquestador, subagentes especializados y analizadores deterministas.
-- **Privacidad:** ejecución local-first, con la base de datos y las evidencias almacenadas localmente.
+- **Privacidad:** ejecución prioritariamente local, con la base de datos y las evidencias almacenadas localmente.
 - **Validación:** una vulnerabilidad solo se considera confirmada cuando tiene evidencia y un método de validación registrados.
 
 ## El problema que estamos investigando
@@ -409,7 +409,7 @@ Los analizadores deterministas pueden funcionar sin llamadas a modelos de lengua
 
 ## Contribuir
 
-VION es un proyecto open source de investigación e ingeniería de seguridad. Las contribuciones son bienvenidas para ampliar la cobertura del análisis, mejorar la precisión de las investigaciones y hacer la arquitectura más eficiente.
+VION es un proyecto de código abierto de investigación e ingeniería de seguridad. Las contribuciones son bienvenidas para ampliar la cobertura del análisis, mejorar la precisión de las investigaciones y hacer la arquitectura más eficiente.
 
 Algunos puntos de partida:
 
@@ -435,6 +435,6 @@ Usa la herramienta solo en entornos propios o con la autorización adecuada.
 
 <p align="center">
   <b>VION Security Agent</b><br>
-  <b>Build faster. Investigate deeper. Develop securely.</b><br>
-  Un proyecto open source dedicado a la investigación de agentes autónomos de seguridad, la validación basada en evidencias y el desarrollo seguro de aplicaciones con inteligencia artificial.
+  <b>Desarrolla más rápido. Investiga más a fondo. Construye con seguridad.</b><br>
+  Un proyecto de código abierto dedicado a la investigación de agentes autónomos de seguridad, la validación basada en evidencias y el desarrollo seguro de aplicaciones con inteligencia artificial.
 </p>

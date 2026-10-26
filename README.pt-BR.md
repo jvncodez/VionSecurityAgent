@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-dark.svg">
-    <img alt="VION — Vulnerable Investigator Orchestrator Network" src="docs/assets/vion-banner-light.svg" width="820">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-pt-dark.svg">
+    <img alt="VION — Rede Orquestradora de Investigação de Vulnerabilidades" src="docs/assets/vion-banner-pt-light.svg" width="820">
   </picture>
 </p>
 
@@ -11,9 +11,9 @@
 
 # VION Security Agent
 
-### Vulnerable Investigator Orchestrator Network
+### Rede Orquestradora de Investigação de Vulnerabilidades
 
-**Open-source security agent for AI-assisted development, autonomous auditing and evidence-driven vulnerability investigation.**
+**Agente de segurança de código aberto para desenvolvimento assistido por IA, auditoria autônoma e investigação de vulnerabilidades baseada em evidências.**
 
 ---
 
@@ -133,11 +133,11 @@ O projeto nasceu de uma pesquisa sobre segurança em aplicações desenvolvidas 
 
 O objetivo é aproximar a velocidade do desenvolvimento assistido por IA do rigor exigido pela engenharia de segurança.
 
-- **Open source:** licença MIT.
-- **Runtime:** Node.js 22.13+.
+- **Código aberto:** licença MIT.
+- **Ambiente de execução:** Node.js 22.13+.
 - **Integração:** Claude Code.
 - **Arquitetura:** orquestrador, subagentes especializados e analisadores determinísticos.
-- **Privacidade:** execução local-first, com banco de dados e evidências armazenados localmente.
+- **Privacidade:** execução prioritariamente local, com banco de dados e evidências armazenados localmente.
 - **Validação:** uma vulnerabilidade só é considerada confirmada quando possui evidência e método de validação registrados.
 
 ## O problema que estamos investigando
@@ -162,11 +162,11 @@ O resultado pode ser uma aplicação construída rapidamente, mas que exige mese
 
 **O VION foi desenvolvido para investigar esse gargalo.**
 
-Em vez de tratar a segurança como uma etapa isolada ao final do projeto, propomos incorporá-la ao ciclo de vida do software: da arquitetura e implementação à auditoria, pré-produção e pós-deploy.
+Em vez de tratar a segurança como uma etapa isolada ao final do projeto, propomos incorporá-la ao ciclo de vida do software: da arquitetura e implementação à auditoria, pré-produção e pós-implantação.
 
 ## Nossa abordagem
 
-### Secure Development desde o início
+### Desenvolvimento seguro desde o início
 
 O VION foi concebido para apoiar uma abordagem de desenvolvimento seguro desde a primeira linha de código.
 
@@ -409,7 +409,7 @@ Os analisadores determinísticos podem funcionar sem chamadas a modelos de lingu
 
 ## Contribuindo
 
-O VION é um projeto open source de pesquisa e engenharia de segurança. Contribuições são bem-vindas para ampliar a cobertura de análise, melhorar a precisão das investigações e tornar a arquitetura mais eficiente.
+O VION é um projeto de código aberto de pesquisa e engenharia de segurança. Contribuições são bem-vindas para ampliar a cobertura de análise, melhorar a precisão das investigações e tornar a arquitetura mais eficiente.
 
 Alguns pontos de partida:
 
@@ -435,6 +435,6 @@ Utilize a ferramenta somente em ambientes próprios ou com autorização adequad
 
 <p align="center">
   <b>VION Security Agent</b><br>
-  <b>Build faster. Investigate deeper. Develop securely.</b><br>
-  Um projeto open source dedicado à pesquisa de agentes autônomos de segurança, validação baseada em evidências e desenvolvimento seguro de aplicações com inteligência artificial.
+  <b>Desenvolva mais rápido. Investigue mais a fundo. Construa com segurança.</b><br>
+  Um projeto de código aberto dedicado à pesquisa de agentes autônomos de segurança, validação baseada em evidências e desenvolvimento seguro de aplicações com inteligência artificial.
 </p>
