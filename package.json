@@ -1,6 +1,6 @@
 {
   "name": "@vionsec/cli",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "VION — Vulnerable Investigator Orchestrator Network. Agente de seguranca open source, local-first, multiagente para Claude Code.",
   "license": "MIT",
   "repository": {

@@ -39,7 +39,7 @@ export const COMMANDS = [
       { error: '`claude` nao encontrado', fix: 'Instale o Claude Code ou rode com --no-mcp e registre depois: `claude mcp add vion -s user -- vion mcp`.' },
       { error: 'settings.json invalido', fix: 'Corrija o JSON de ~/.claude/settings.json; o VION nao sobrescreve arquivo invalido.' },
     ],
-    cautions: ['Substitui ~/.claude/commands/vion/ (a versao anterior vai para vion.bak-<data>).'],
+    cautions: ['Substitui ~/.claude/commands/vion/ (a versao anterior vai para ~/.claude/vion-backups/commands-vion-<data>).'],
     run: () => import('./commands/init.js'),
   },
   {

@@ -119,9 +119,13 @@ export function install({ project = false, mcp = true, hook = true, dryRun = fal
   // skills
   const skillFiles = fs.readdirSync(SKILLS_SRC).filter(f => f.endsWith('.md'))
   if (fs.existsSync(t.commands) && !previous) {
-    const bak = path.join(path.dirname(t.commands), `vion.bak-${stamp()}`)
+    // fora de commands/: o Claude Code carregaria o backup como comandos duplicados
+    const bak = path.join(t.base, 'vion-backups', `commands-vion-${stamp()}`)
     actions.push(`backup: ${t.commands} -> ${bak}`)
-    if (!dryRun) fs.renameSync(t.commands, bak)
+    if (!dryRun) {
+      fs.mkdirSync(path.dirname(bak), { recursive: true })
+      fs.renameSync(t.commands, bak)
+    }
   }
   if (!dryRun) {
     fs.mkdirSync(t.commands, { recursive: true })

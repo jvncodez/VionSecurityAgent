@@ -74,7 +74,7 @@ Erros comuns:
 
 Cuidados:
 
-- Substitui ~/.claude/commands/vion/ (a versao anterior vai para vion.bak-<data>).
+- Substitui ~/.claude/commands/vion/ (a versao anterior vai para ~/.claude/vion-backups/commands-vion-<data>).
 
 ### `vion uninstall`
 
