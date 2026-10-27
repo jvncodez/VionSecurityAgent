@@ -27,7 +27,7 @@
 | Claude Code | Installed and authenticated |
 | Operating system | Windows, macOS or Linux |
 
-VION currently runs on Claude Code. Support for other agent platforms, such as Cursor and OpenAgent, is planned (see [Roadmap](#roadmap)).
+VION currently runs on Claude Code. Support for other agent platforms, such as Cursor and OpenCode, is planned (see [Roadmap](#roadmap)).
 
 ### Install from npm
 
@@ -415,7 +415,7 @@ The deterministic analyzers can run without calls to language models. See the do
 
 This research will not stop at Claude Code agents. The question VION investigates applies to any AI agent that writes or reviews code, and we want to measure the results across different platforms and models.
 
-VION currently integrates with Claude Code. We are already planning support for other agent platforms, such as **Cursor** and **OpenAgent**, so that the same skills, specialized agents, scope enforcement and local storage work regardless of the tool the team uses.
+VION currently integrates with Claude Code. We are already planning support for other agent platforms, such as **Cursor** and **OpenCode**, so that the same skills, specialized agents, scope enforcement and local storage work regardless of the tool the team uses.
 
 The goal is to keep the engine (deterministic analyzers, evidence store, scope and reports) independent of the agent platform, with an integration layer for each one.
 
