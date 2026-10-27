@@ -12,8 +12,7 @@ export const c = {
   blue: wrap('34'),
   magenta: wrap('35'),
   cyan: wrap('36'),
-  /** cor da paleta de 256 cores do terminal */
-  c256: n => wrap(`38;5;${n}`),
+  white: wrap('97'),
 }
 
 export const SEV_COLOR = { critical: c.red, high: c.magenta, medium: c.yellow, low: c.blue, info: c.dim }

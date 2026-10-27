@@ -6,11 +6,11 @@ import { c, wrapText } from './term.js'
 import { VERSION } from '../core/version.js'
 import { LOGO, TAGLINE } from './logo.js'
 
-// degrade de azul, linha a linha (paleta de 256 cores)
-const LOGO_SHADES = [117, 111, 75, 69, 33, 27]
+// azul escuro e branco padrao do terminal (sempre azul, em qualquer esquema de cores); sem negrito
+const blue = c.blue
 
 export function renderLogo() {
-  return ['', ...LOGO.map((l, i) => c.bold(c.c256(LOGO_SHADES[i])(l))), c.dim(TAGLINE), ''].join('\n')
+  return ['', ...LOGO.map(blue), c.white(TAGLINE), ''].join('\n')
 }
 
 export function renderGeneralHelp() {
@@ -25,14 +25,14 @@ export function renderGeneralHelp() {
     '  vion <comando> [opcoes]',
     '',
     c.bold('Comandos'),
-    ...cmds.map(x => `  ${c.cyan(x.name.padEnd(w))}${x.summary}`),
+    ...cmds.map(x => `  ${blue(x.name.padEnd(w))}${x.summary}`),
     '',
     c.bold('Comece por aqui'),
-    `  1. ${c.cyan('vion init')}        instala skills, agentes, MCP e hook no Claude Code`,
-    `  2. ${c.cyan('vion ui')}          abre http://localhost:3333`,
-    `  3. ${c.cyan('vion audit .')}     audita o projeto atual (ou /vion:auditoria dentro do Claude Code)`,
+    `  1. ${blue('vion init')}        instala skills, agentes, MCP e hook no Claude Code`,
+    `  2. ${blue('vion ui')}          abre http://localhost:3333`,
+    `  3. ${blue('vion audit .')}     audita o projeto atual (ou /vion:auditoria dentro do Claude Code)`,
     '',
-    `Ajuda de um comando: ${c.cyan('vion help <comando>')}   Skills do Claude Code: ${c.cyan('vion help skills')}`,
+    `Ajuda de um comando: ${blue('vion help <comando>')}   Skills do Claude Code: ${blue('vion help skills')}`,
   ].join('\n')
 }
 
@@ -42,7 +42,7 @@ export function renderCommandHelp(name) {
   const out = [`${c.bold(`vion ${cmd.name}`)} — ${cmd.summary}`, '', c.bold('Sintaxe'), `  ${cmd.usage}`, '', c.bold('Descricao'), wrapText(cmd.description, 80, '  ')]
   if (cmd.args?.length) {
     out.push('', c.bold('Argumentos'))
-    for (const a of cmd.args) out.push(`  ${c.cyan(a.required ? `<${a.name}>` : `[${a.name}]`)}  ${a.desc}${a.required ? '' : c.dim(' (opcional)')}`)
+    for (const a of cmd.args) out.push(`  ${blue(a.required ? `<${a.name}>` : `[${a.name}]`)}  ${a.desc}${a.required ? '' : c.dim(' (opcional)')}`)
   }
   const opts = Object.entries(cmd.options || {})
   if (opts.length) {
@@ -50,7 +50,7 @@ export function renderCommandHelp(name) {
     const w = Math.max(...opts.map(([n, o]) => n.length + (o.type === 'boolean' ? 0 : 8))) + 4
     for (const [n, o] of opts) {
       const flag = `--${n}${o.type === 'boolean' ? '' : ' <valor>'}`
-      out.push(`  ${c.cyan(flag.padEnd(w))}${o.desc}${o.values ? c.dim(` [${o.values.join('|')}]`) : ''}${o.multiple ? c.dim(' (repetivel)') : ''}`)
+      out.push(`  ${blue(flag.padEnd(w))}${o.desc}${o.values ? c.dim(` [${o.values.join('|')}]`) : ''}${o.multiple ? c.dim(' (repetivel)') : ''}`)
     }
   }
   if (cmd.examples?.length) out.push('', c.bold('Exemplos'), ...cmd.examples.map(e => `  $ ${e}`))
@@ -82,7 +82,7 @@ export function renderSkillsHelp() {
     const items = SKILLS.filter(s => s.group === g)
     if (!items.length) continue
     out.push('', c.bold(title))
-    for (const s of items) out.push(`  ${c.cyan(`/vion:${s.name}`.padEnd(20))}${s.summary}`)
+    for (const s of items) out.push(`  ${blue(`/vion:${s.name}`.padEnd(20))}${s.summary}`)
   }
   return out.join('\n')
 }
