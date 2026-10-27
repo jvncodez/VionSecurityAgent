@@ -27,6 +27,8 @@
 | Claude Code | Instalado e autenticado |
 | Sistema operacional | Windows, macOS ou Linux |
 
+Hoje o VION roda no Claude Code. O suporte a outras plataformas de agentes, como Cursor e OpenAgent, está em planejamento (veja o [Roadmap](#roadmap)).
+
 ### Instalação pelo npm
 
 ```bash
@@ -404,6 +406,18 @@ vion config set retention.days 180
 O projeto foi concebido para não enviar dados a servidores próprios. Os recursos de IA dependem da integração com o Claude Code e do processamento realizado pelo provedor de modelo utilizado. Portanto, o armazenamento local não significa que o código nunca será transmitido para serviços externos durante uma análise com IA.
 
 Os analisadores determinísticos podem funcionar sem chamadas a modelos de linguagem. Os requisitos de conectividade e as condições de privacidade de cada modo devem ser consultados na documentação.
+
+---
+
+## Roadmap
+
+### Suporte a outras plataformas de agentes
+
+Hoje o VION se integra ao Claude Code. Já estamos planejando o suporte a outras plataformas de agentes, como **Cursor** e **OpenAgent**, para que as mesmas skills, agentes especializados, aplicação de escopo e armazenamento local funcionem independentemente da ferramenta que a equipe utiliza.
+
+O objetivo é manter o motor (analisadores determinísticos, armazenamento de evidências, escopo e relatórios) independente da plataforma de agentes, com uma camada de integração para cada uma.
+
+Se você usa uma dessas plataformas e quer ajudar, abra uma issue para discutir a integração.
 
 ---
 
