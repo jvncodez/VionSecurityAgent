@@ -210,7 +210,7 @@ In an audit of a deliberately vulnerable test project, the experimental configur
 
 In that run, the Opus-based orchestrator accounted for approximately 55% of the cost, and the subagents for the rest.
 
-These numbers describe one specific run, not a guarantee of performance, coverage or cost for any application. The research aims to extend validation to different projects and scenarios.
+These numbers describe one specific run, not a guarantee of performance, coverage or cost for any application. The research aims to extend validation to different projects and scenarios, and beyond Claude Code agents to other agent platforms.
 
 ---
 
@@ -412,6 +412,8 @@ The deterministic analyzers can run without calls to language models. See the do
 ## Roadmap
 
 ### Support for other agent platforms
+
+This research will not stop at Claude Code agents. The question VION investigates applies to any AI agent that writes or reviews code, and we want to measure the results across different platforms and models.
 
 VION currently integrates with Claude Code. We are already planning support for other agent platforms, such as **Cursor** and **OpenAgent**, so that the same skills, specialized agents, scope enforcement and local storage work regardless of the tool the team uses.
 
