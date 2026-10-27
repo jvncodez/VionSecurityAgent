@@ -210,7 +210,7 @@ En una auditoría de un proyecto de prueba deliberadamente vulnerable, la config
 
 En esa ejecución, el orquestador basado en Opus representó aproximadamente el 55% del costo, y los subagentes, el resto.
 
-Estas cifras describen una ejecución específica, no una garantía de rendimiento, cobertura ni costo para cualquier aplicación. La investigación busca ampliar la validación a distintos proyectos y escenarios.
+Estas cifras describen una ejecución específica, no una garantía de rendimiento, cobertura ni costo para cualquier aplicación. La investigación busca ampliar la validación a distintos proyectos y escenarios y, más allá de los agentes de Claude Code, a otras plataformas de agentes.
 
 ---
 
@@ -412,6 +412,8 @@ Los analizadores deterministas pueden funcionar sin llamadas a modelos de lengua
 ## Roadmap
 
 ### Soporte para otras plataformas de agentes
+
+Esta investigación no se detendrá en los agentes de Claude Code. La pregunta que VION investiga se aplica a cualquier agente de IA que escribe o revisa código, y queremos medir los resultados en distintas plataformas y modelos.
 
 Hoy VION se integra con Claude Code. Ya estamos planificando el soporte para otras plataformas de agentes, como **Cursor** y **OpenAgent**, para que las mismas skills, agentes especializados, aplicación del alcance y almacenamiento local funcionen sin importar la herramienta que use el equipo.
 
