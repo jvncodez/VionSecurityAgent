@@ -18,6 +18,18 @@ Findings, payloads e técnicas abaixo são exemplos canônicos (OWASP Top 10, CW
 
 ## /vion:vion — Menu de Comandos
 
+Primeiro, escreva este banner direto na resposta, como bloco de codigo markdown (nao use Bash nem echo):
+
+```
+██╗   ██╗██╗ ██████╗ ███╗   ██╗███████╗███████╗ ██████╗
+██║   ██║██║██╔═══██╗████╗  ██║██╔════╝██╔════╝██╔════╝
+██║   ██║██║██║   ██║██╔██╗ ██║███████╗█████╗  ██║
+╚██╗ ██╔╝██║██║   ██║██║╚██╗██║╚════██║██╔══╝  ██║
+ ╚████╔╝ ██║╚██████╔╝██║ ╚████║███████║███████╗╚██████╗
+  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝
+                  S e c u r i t y    A g e n t
+```
+
 Exiba EXATAMENTE este bloco:
 
 ```

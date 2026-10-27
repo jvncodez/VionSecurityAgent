@@ -9,7 +9,7 @@ export function renderGeneralHelp() {
   const cmds = publicCommands()
   const w = Math.max(...cmds.map(x => x.name.length)) + 2
   return [
-    `${c.bold('VION')} ${c.dim(`v${VERSION}`)} — Vulnerable Investigator Orchestrator Network`,
+    `${c.bold('VIONSEC Security Agent')} ${c.dim(`v${VERSION}`)} — Vulnerable Investigator Orchestrator Network`,
     wrapText('Agente de seguranca open source e local-first para o Claude Code. Um orquestrador (Opus) planeja e revisa; subagentes mais baratos (Sonnet/Haiku) e analisadores deterministicos fazem o trabalho pesado. Resultados, evidencias e relatorios ficam na sua maquina e aparecem em http://localhost:3333.'),
     '',
     c.bold('Uso'),
