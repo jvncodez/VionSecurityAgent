@@ -4,11 +4,20 @@ import { publicCommands, findCommand } from './registry.js'
 import { SKILLS, GROUPS } from './skills-meta.js'
 import { c, wrapText } from './term.js'
 import { VERSION } from '../core/version.js'
+import { LOGO, TAGLINE } from './logo.js'
+
+// degrade de azul, linha a linha (paleta de 256 cores)
+const LOGO_SHADES = [117, 111, 75, 69, 33, 27]
+
+export function renderLogo() {
+  return ['', ...LOGO.map((l, i) => c.bold(c.c256(LOGO_SHADES[i])(l))), c.dim(TAGLINE), ''].join('\n')
+}
 
 export function renderGeneralHelp() {
   const cmds = publicCommands()
   const w = Math.max(...cmds.map(x => x.name.length)) + 2
   return [
+    renderLogo(),
     `${c.bold('VIONSEC Security Agent')} ${c.dim(`v${VERSION}`)} — Vulnerable Investigator Orchestrator Network`,
     wrapText('Agente de seguranca open source e local-first para o Claude Code. Um orquestrador (Opus) planeja e revisa; subagentes mais baratos (Sonnet/Haiku) e analisadores deterministicos fazem o trabalho pesado. Resultados, evidencias e relatorios ficam na sua maquina e aparecem em http://localhost:3333.'),
     '',
