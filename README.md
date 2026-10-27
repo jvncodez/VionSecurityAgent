@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <b>English</b> · <a href="README.pt-BR.md">Português</a> · <a href="README.es.md">Español</a>
+  <b>English</b> · <a href="docs/README.pt-BR.md">Português</a> · <a href="docs/README.es.md">Español</a>
 </p>
 
 # VION Security Agent

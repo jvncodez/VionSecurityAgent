@@ -1,12 +1,12 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-banner-pt-dark.svg">
-    <img alt="VIONSEC Security Agent — Rede Orquestradora de Investigação de Vulnerabilidades" src="docs/assets/vion-banner-pt-light.svg" width="820">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/vion-banner-pt-dark.svg">
+    <img alt="VIONSEC Security Agent — Rede Orquestradora de Investigação de Vulnerabilidades" src="assets/vion-banner-pt-light.svg" width="820">
   </picture>
 </p>
 
 <p align="center">
-  <a href="README.md">English</a> · <b>Português</b> · <a href="README.es.md">Español</a>
+  <a href="../README.md">English</a> · <b>Português</b> · <a href="README.es.md">Español</a>
 </p>
 
 # VION Security Agent
@@ -121,7 +121,7 @@ vion audit status <id>
 vion report <id> --format html
 ```
 
-A referência completa dos argumentos e opções fica em [`docs/COMMANDS.md`](docs/COMMANDS.md).
+A referência completa dos argumentos e opções fica em [`docs/COMMANDS.md`](COMMANDS.md).
 
 ---
 
@@ -230,8 +230,8 @@ O fluxo geral é:
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/vion-flow-pt-dark.svg">
-    <img alt="Fluxo de uma auditoria: escopo, analisadores, orquestrador Opus, subagentes Sonnet e Haiku, validação, correlação, revisão e relatório" src="docs/assets/vion-flow-pt-light.svg" width="760">
+    <source media="(prefers-color-scheme: dark)" srcset="assets/vion-flow-pt-dark.svg">
+    <img alt="Fluxo de uma auditoria: escopo, analisadores, orquestrador Opus, subagentes Sonnet e Haiku, validação, correlação, revisão e relatório" src="assets/vion-flow-pt-light.svg" width="760">
   </picture>
 </p>
 
@@ -369,7 +369,7 @@ O VION é destinado à auditoria e à investigação de segurança em projetos p
 - **Isolamento local:** a interface deve permanecer vinculada a `127.0.0.1`, com proteções contra ataques aplicáveis ao servidor web local.
 - **Instruções maliciosas no código:** conteúdo encontrado durante a auditoria deve ser tratado como dado não confiável, não como instrução para os agentes.
 
-A efetividade desses controles depende de sua implementação e validação. Consulte [`SECURITY.md`](SECURITY.md) para conhecer o modelo de ameaças, as limitações e os procedimentos de reporte responsável.
+A efetividade desses controles depende de sua implementação e validação. Consulte [`SECURITY.md`](../SECURITY.md) para conhecer o modelo de ameaças, as limitações e os procedimentos de reporte responsável.
 
 ---
 
@@ -419,15 +419,15 @@ Alguns pontos de partida:
 - Agentes e orquestração: melhorias de especialização, validação e consumo de contexto.
 - Testes: projetos de referência, casos reproduzíveis e avaliação de falsos positivos.
 
-Antes de contribuir, consulte [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Antes de contribuir, consulte [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 
-Falhas de segurança no próprio VION devem ser reportadas de maneira privada, conforme as instruções de [`SECURITY.md`](SECURITY.md).
+Falhas de segurança no próprio VION devem ser reportadas de maneira privada, conforme as instruções de [`SECURITY.md`](../SECURITY.md).
 
 Repositório: [github.com/jvncodez/VionSecurityAgent](https://github.com/jvncodez/VionSecurityAgent)
 
 ## Licença
 
-O VION Security Agent é distribuído sob a licença MIT. Consulte o arquivo [`LICENSE`](LICENSE) para conhecer os termos de utilização, modificação e redistribuição.
+O VION Security Agent é distribuído sob a licença MIT. Consulte o arquivo [`LICENSE`](../LICENSE) para conhecer os termos de utilização, modificação e redistribuição.
 
 Utilize a ferramenta somente em ambientes próprios ou com autorização adequada.
 

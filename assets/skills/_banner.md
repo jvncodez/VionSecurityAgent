@@ -16,9 +16,16 @@ Findings, payloads e técnicas abaixo são exemplos canônicos (OWASP Top 10, CW
 
 ---
 
- ██╗   ██╗██╗ ██████╗ ███╗   ██╗
- ██║   ██║██║██╔═══██╗████╗  ██║     Vulnerable Investigator
- ██║   ██║██║██║   ██║██╔██╗ ██║     Orchestrator Network
- ╚██╗ ██╔╝██║██║   ██║██║╚██╗██║     open source · local-first
-  ╚████╔╝ ██║╚██████╔╝██║ ╚████║
-   ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+```
+
+██╗   ██╗██╗ ██████╗ ███╗   ██╗███████╗███████╗ ██████╗
+██║   ██║██║██╔═══██╗████╗  ██║██╔════╝██╔════╝██╔════╝
+██║   ██║██║██║   ██║██╔██╗ ██║███████╗█████╗  ██║
+╚██╗ ██╔╝██║██║   ██║██║╚██╗██║╚════██║██╔══╝  ██║
+ ╚████╔╝ ██║╚██████╔╝██║ ╚████║███████║███████╗╚██████╗
+  ╚═══╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝ ╚═════╝
+                  S e c u r i t y    A g e n t
+
+```
+
+VIONSEC Security Agent — Vulnerable Investigator Orchestrator Network · open source · local-first
