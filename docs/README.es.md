@@ -15,6 +15,8 @@
 
 **Agente de seguridad de código abierto para el desarrollo asistido por IA, la auditoría autónoma y la investigación de vulnerabilidades basada en evidencias.**
 
+> **Aviso:** VION es una herramienta de investigación que apoya el trabajo de seguridad. No sustituye a profesionales cualificados, como pentesters, analistas de seguridad y auditores. Sus hallazgos deben ser revisados por personas con conocimientos de seguridad antes de tomar cualquier decisión.
+
 ---
 
 ## Instalación
@@ -361,6 +363,8 @@ La interfaz está pensada para acceso local y no tiene un sistema de login propi
 ## Seguridad y uso responsable
 
 VION está destinado a la auditoría y la investigación de seguridad en proyectos propios o en sistemas para los que exista la autorización adecuada.
+
+VION no sustituye a profesionales cualificados. El análisis automatizado, incluso con múltiples agentes y evidencias, puede pasar por alto vulnerabilidades, equivocarse en la severidad o señalar falsos positivos. Los pentests, las auditorías formales, las evaluaciones de cumplimiento y las decisiones de riesgo deben seguir bajo la responsabilidad de profesionales cualificados, como pentesters, analistas de seguridad y auditores. Use VION para apoyar y acelerar ese trabajo, no para sustituirlo.
 
 ### Controles previstos en la arquitectura
 
